@@ -1,0 +1,21 @@
+body {
+  background-color: lightcoral;
+  font-size: 20px;
+  color: black;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+}
+
+h1 {
+  color: red;
+}
+
+button {
+  background-color: green;
+}
