@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import './Answer.jsx'
+import Answer from './Answer.jsx'
 
 function App() {
   const CounterIncrease = () => {
@@ -14,20 +14,77 @@ function App() {
       setCounter(counter + 1)
     }
   }
+
+  //Input data tracker
+  const [formData, setFormData] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
+
+
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    console.log("handlechangeworks")
+    console.log(e.target.value)
+  };
+
+
+  const [dayValue, setDayValue] = useState(null);
+
+
   return (
     <>
-      <h1>Hiii</h1>
       <div className="container">
-        Day
-        DD
-        <button onClick={(handleClick1(0))}>click</button>
-        <CounterIncrease />
-        Month
-        MM
+        <section className="container-top">
+          <div className="day inputs">
+            <h2>Day</h2>
 
-        Year
-        YYYY
+            <input
+              class="input"
+              // type="number"
+              id="day"
+              placeholder="DD"
+              value={formData.day} onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="month inputs">
+            <h2>Month</h2>
+            <input
+              class="input"
+              type="number"
+              id="Month"
+              placeholder="MM"
+              value={formData.month} onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="year inputs">
+            <h2>Year</h2>
+            <input
+              class="input"
+              type="number"
+              id="day"
+              placeholder="YYYY"
+              value={formData.year} onChange={handleChange}
+              required
+            />
+          </div>
+        </section>
 
+
+
+
+
+        <div className="end-container">
+
+          <Answer />
+        </div>
       </div>
     </>
   )
